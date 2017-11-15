@@ -2,8 +2,8 @@ import psycopg2
 
 
 class Database:
-    mypath = "dbname='sizeappDB' user='sergetoure' password='Footballeur1985#$' host='127.0.0.1' port='5432'"
-
+    #mypath = "dbname='sizeappDB' user='sergetoure' password='Footballeur1985#$' host='127.0.0.1' port='5432'"
+    mypath = "dbname='d409e8q163vuf0' user='ahibkjttbrowzo' password='499eb20375ec377932e93c82cb420d7c8adcfe1fd6d9ad953cecb6598f0d1d2d' host='ec2-54-235-65-224.compute-1.amazonaws.com' port='5432'"
     def __init__(self):
         self.conn = psycopg2.connect(self.mypath)
         self.cur = self.conn.cursor()
