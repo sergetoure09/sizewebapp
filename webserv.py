@@ -17,10 +17,15 @@ def success():
         size=request.form["size_name"]
         print(email,size)
         result=controler.record_entry_control(email,size)
-        if(result):
-            controler.send_data_email(email)
-            return render_template("success.html")
-            
+        if (result):
+            try:
+                msg_res=controler.send_data_email(email,size)
+                if (msg_res):
+                    return render_template("success.html",text="Email sent successfully to {0} ".format(email))  
+                else:
+                    return render_template("form.html",text="Error sending message to {0}".format(email))
+            except Exception as e:
+                print(e)         
         else:
             return render_template("form.html" ,
             text="Email already in database or verify the entry")

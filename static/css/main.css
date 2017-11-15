@@ -14,6 +14,10 @@
         color: red;
         font-size: 10px;
     }
+    .msg_success{
+        color:greenyellow;
+        font-size: 30px;
+    }
     .header h1{
         color:#f0f0f2;
     }

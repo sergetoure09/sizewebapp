@@ -9,8 +9,18 @@ class Database:
 
     def __del__(self):
         self.conn.close()
-        print("Connection to databsed closed !")
+        print("Connection to database closed !")
+    
+    def getavg(self):
+        self.cur.execute("SELECT size from sizeapp")
+        data=self.cur.fetchall()
+        f=list()
+        for i in data:
+            f.extend(list(i))
+        avg = float(sum(f)/len(f))
+        return avg
 
+    
     def record_entry_db(self,email,size):
         print("Checking email in database...")
         self.cur.execute("SELECT email from sizeapp")
@@ -31,6 +41,7 @@ class Database:
             except Exception as e:
                 print(e)
                 return False
+        
 
 
         
