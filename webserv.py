@@ -6,10 +6,9 @@ app=Flask(__name__)
 def form():
     return render_template("form.html")
 
-@app.route('/success/')
+@app.route('/success/',methods=['POST'])
 def success():
     return render_template("success.html")
 
 if __name__=="__main__":
     app.run(debug=True)
-
