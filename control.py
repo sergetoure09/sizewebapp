@@ -21,16 +21,19 @@ class controlers:
             from_pwd = "Footballeur1985#$"
             to_email = email
             subject = "SizeApp auto-message"
-            message = "hey there \n Your height is <strong>{0}</strong>\n The average height is <strong>{1}</strong> ".format(
-                size, avg)
+            message = "hey there <br> Your height is <strong>{0}</strong><br> The average height is <strong>{1}</strong> ".format(size, avg)
             msg = MIMEText(message, 'html')
             msg['Subject'] = subject
             msg['From'] = from_email
             msg['To'] = to_email
             mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+            print('voo')
             mailserver.ehlo()
+           
             mailserver.starttls()
+           
             mailserver.login(from_email, from_pwd)
+            print('voo')
             mailserver.send_message(msg)
             print('email sent successfully to', email)
             return True

@@ -16,10 +16,10 @@ def success():
         email = request.form["email_name"]
         size = request.form["size_name"]
         print(email, size)
-        result = controler.record_entry_control(email, size)
+        result = controler.record_entry_control(email, int(size))
         if (result):
             try:
-                msg_res = controler.send_data_email(email, size)
+                msg_res = controler.send_data_email(email, int(size))
                 if (msg_res):
                     return render_template(
                         "success.html",

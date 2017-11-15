@@ -2,12 +2,18 @@ import psycopg2
 
 
 class Database:
-    mypath = "dbname='testdb' user='sergetoure' password='Footballeur1985#$' host='127.0.0.1' port='5432'"
+    mypath = "dbname='sizeappDB' user='sergetoure' password='Footballeur1985#$' host='127.0.0.1' port='5432'"
 
     def __init__(self):
         self.conn = psycopg2.connect(self.mypath)
         self.cur = self.conn.cursor()
-        print("connection to database opened !\n You can start request")
+        try:
+            self.cur.execute('''CREATE  TABLE IF NOT EXISTS sizeapp (id SERIAL PRIMARY KEY,email TEXT,size INTEGER )''')
+            self.conn.commit()
+            print("connection to database opened ! You can start request")
+        except Exception as e:
+            print (e)
+       
 
     def __del__(self):
         self.conn.close()
@@ -35,7 +41,7 @@ class Database:
         else:
             print("email not found we can proceed...")
             try:
-                self.cur.execute("INSERT INTO sizeapp VALUES (%s,%s)",
+                self.cur.execute("INSERT INTO sizeapp (email,size) VALUES (%s,%s)",
                                  (email, size))
                 self.conn.commit()
                 print("Entry recorded successfully!")
