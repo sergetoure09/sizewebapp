@@ -8,10 +8,14 @@
     .header{
         height: 100%;
         margin-bottom: 50px;
-        background-color: #009ee7fd
+        background-color: #16a3dffc;
+    }
+    .error_msg{
+        color: red;
+        font-size: 10px;
     }
     .header h1{
-        color: #fff;
+        color:#f0f0f2;
     }
     input{
         height: 50px;
@@ -38,15 +42,5 @@
         color: #38488f;
         text-decoration: none;
     }
-    @media (max-width: 700px) {
-        body {
-            background-color: #fff;
-        }
-        div {
-            width: auto;
-            margin: 0 auto;
-            border-radius: 0;
-            padding: 1em;
-        }
-    }
+    
    
