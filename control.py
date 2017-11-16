@@ -27,7 +27,7 @@ class controlers:
             msg['From'] = from_email
             msg['To'] = to_email
             mailserver = smtplib.SMTP('smtp.gmail.com', 587)
-            print('voo')
+            #print('voo')
             mailserver.ehlo()
            
             mailserver.starttls()
